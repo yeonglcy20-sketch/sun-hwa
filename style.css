@@ -1,0 +1,74 @@
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,"Noto Sans KR",sans-serif;
+}
+
+/* =========================================================
+   🌸 Baek Seonhwa Premium Background
+   ========================================================= */
+
+.bg-gradient{
+  position: fixed;
+  inset: -25%;
+  z-index: -3;
+  pointer-events: none;
+  background:
+    radial-gradient(closest-side at 18% 22%, rgba(243,167,198,.26), transparent 62%),
+    radial-gradient(closest-side at 78% 30%, rgba(167,227,207,.22), transparent 62%),
+    radial-gradient(closest-side at 40% 86%, rgba(217,231,255,.24), transparent 70%),
+    radial-gradient(closest-side at 86% 82%, rgba(255,255,255,.20), transparent 70%),
+    linear-gradient(180deg, rgba(255,255,255,.55), rgba(255,255,255,0));
+  filter: blur(22px);
+}
+
+.bg-bokeh{
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  opacity: .9;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(255,255,255,.22) 0 18px, transparent 19px),
+    radial-gradient(circle at 82% 22%, rgba(243,167,198,.18) 0 22px, transparent 23px),
+    radial-gradient(circle at 22% 72%, rgba(167,227,207,.16) 0 26px, transparent 27px),
+    radial-gradient(circle at 74% 78%, rgba(217,231,255,.18) 0 30px, transparent 31px),
+    radial-gradient(circle at 48% 40%, rgba(255,255,255,.18) 0 16px, transparent 17px);
+  filter: blur(1px);
+}
+
+.bg-petals{
+  position: fixed;
+  inset: -20%;
+  z-index: -1;
+  pointer-events: none;
+  opacity: .75;
+  background:
+    radial-gradient(closest-side at 28% 30%, rgba(243,167,198,.22), transparent 66%),
+    radial-gradient(closest-side at 72% 32%, rgba(167,227,207,.18), transparent 66%),
+    radial-gradient(closest-side at 40% 78%, rgba(217,231,255,.20), transparent 70%),
+    radial-gradient(closest-side at 78% 82%, rgba(243,167,198,.16), transparent 72%);
+  filter: blur(18px);
+  animation: petalsFloat 14s ease-in-out infinite alternate;
+}
+
+@keyframes petalsFloat{
+  0%   { transform: translate3d(0,0,0) scale(1); }
+  100% { transform: translate3d(-18px, 12px, 0) scale(1.02); }
+}
+
+.table{
+  width:90%;
+  margin:40px auto;
+  border-collapse:collapse;
+  background:white;
+  border-radius:16px;
+  overflow:hidden;
+}
+
+th,td{
+  padding:12px;
+  border-bottom:1px solid #eee;
+}
+
+.starFilled{color:#f59e0b;}
+.starEmpty{color:#ddd;}
