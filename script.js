@@ -27,15 +27,30 @@ async function loadSongs(){
   tbody.innerHTML="";
   if(!data.values) return;
   data.values.slice(1).forEach(r=>{
-    const genre=r[1]||"";
-    const singer=r[2]||"";
-    const title=r[3]||"";
-    const stars=toStarNumber(r[4]);
-    if(!title) return;
-    const tr=document.createElement("tr");
-    tr.innerHTML=`<td>${genre}</td><td>${singer}</td><td>${title}</td><td>${starsHtml(stars)}</td>`;
-    tbody.appendChild(tr);
-  });
+  const genre = r[1] || "";
+  const singer = r[2] || "";
+  const title = r[3] || "";
+  const stars = toStarNumber(r[4]);
+
+  // 🚫 헤더처럼 보이는 행 자동 제거
+  if (
+    title.includes("제목") ||
+    singer.includes("가수") ||
+    genre.includes("장르")
+  ) return;
+
+  // 🚫 제목 없는 행 제거
+  if (!title) return;
+
+  const tr = document.createElement("tr");
+  tr.innerHTML = `
+    <td>${genre}</td>
+    <td>${singer}</td>
+    <td>${title}</td>
+    <td>${starsHtml(stars)}</td>
+  `;
+  tbody.appendChild(tr);
+});
 }
 
 document.getElementById("search").addEventListener("input",()=>{
