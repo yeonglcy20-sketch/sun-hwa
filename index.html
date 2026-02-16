@@ -39,14 +39,22 @@
 
 <main class="wrap">
   <table class="table">
-    <thead>
-      <tr>
-        <th>🎶장르</th>
-        <th>👩‍🎤가수</th>
-        <th>🎤제목</th>
-        <th>★난이도</th>
-      </tr>
-    </thead>
+   <thead>
+  <tr>
+    <th class="thSort" data-sort="genre" role="button" tabindex="0" title="장르 정렬">
+      🎶장르
+    </th>
+    <th class="thSort" data-sort="singer" role="button" tabindex="0" title="가수 정렬">
+      👩‍🎤가수
+    </th>
+    <th class="thSort" data-sort="title" role="button" tabindex="0" title="제목 정렬">
+      🎤제목
+    </th>
+    <th class="thSort" data-sort="stars" role="button" tabindex="0" title="난이도 정렬">
+      ★난이도
+    </th>
+  </tr>
+</thead>
     <tbody id="songList"></tbody>
   </table>
 </main>
