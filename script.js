@@ -1,5 +1,5 @@
 const SHEET_ID = "1H2n5pV3QANqjc0cP9Xyt6jTj89qlZ4MgmLe2RKFN7ME";
-const API_KEY  = "여기에_API키_입력";
+const API_KEY  = "AIzaSyDxqxuU1Lw43FdsBDSbUDxy6ktg2TKPDgM";
 const RANGE    = "Sheet1!A:E";
 
 const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${encodeURIComponent(RANGE)}?key=${API_KEY}`;
