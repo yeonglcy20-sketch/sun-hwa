@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🎤이장선화의 노래책🎤</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- subtle decorated background -->
+<div class="bg-soft"></div>
+<div class="bg-dots"></div>
+
+<header class="hero">
+  <img class="avatar" src="baekseonhwa.png" alt="백선화" />
+  <h1>🎤이장선화의 노래책🎤</h1>
+
+  <input id="search" type="text" placeholder="검색: 제목/가수/장르" />
+
+  <div class="starsBar">
+    <button class="starBtn" data-star="all">전체</button>
+    <button class="starBtn" data-star="1">★</button>
+    <button class="starBtn" data-star="2">★★</button>
+    <button class="starBtn" data-star="3">★★★</button>
+    <button class="starBtn" data-star="4">★★★★</button>
+    <button class="starBtn" data-star="5">★★★★★</button>
+  </div>
+
+  <select id="starFilter" class="hiddenSelect">
+    <option value="all">전체</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+</header>
+
+<main class="wrap">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>장르</th>
+        <th>가수</th>
+        <th>제목</th>
+        <th>난이도</th>
+      </tr>
+    </thead>
+    <tbody id="songList"></tbody>
+  </table>
+</main>
+
+<script src="script.js"></script>
+
+<script>
+(function () {
+  const select = document.getElementById("starFilter");
+  const btns = document.querySelectorAll(".starBtn");
+  function setActive(v){
+    btns.forEach(b => b.classList.toggle("active", b.dataset.star === v));
+  }
+  setActive("all");
+  btns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const v = btn.dataset.star;
+      select.value = v;
+      setActive(v);
+      select.dispatchEvent(new Event("change"));
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
