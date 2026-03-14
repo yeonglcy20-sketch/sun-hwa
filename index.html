@@ -1,83 +1,72 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>🎤이장선화의 노래책🎤</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🌸백쨈의 노래자랑🌸</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- subtle decorated background -->
 <div class="bg-soft"></div>
 <div class="bg-dots"></div>
 
 <header class="hero">
-  <img class="avatar" src="baekseonhwa.png" alt="백선화" />
-  <h1>🎤이장선화의 노래책🎤</h1>
+<img src="baekseonhwa.png" class="avatar">
+<h1>🌸백쨈의 노래자랑🌸</h1>
 
-  <input id="search" type="text" placeholder="검색: 제목/가수/장르" />
+<input id="search" type="text" placeholder="검색: 제목 / 가수 / 장르">
 
-  <div class="starsBar">
-    <button class="starBtn" data-star="all">전체</button>
-    <button class="starBtn" data-star="1">★</button>
-    <button class="starBtn" data-star="2">★★</button>
-    <button class="starBtn" data-star="3">★★★</button>
-    <button class="starBtn" data-star="4">★★★★</button>
-    <button class="starBtn" data-star="5">★★★★★</button>
-  </div>
+<div class="starsBar">
+<button class="starBtn" data-star="all">전체</button>
+<button class="starBtn" data-star="1">★</button>
+<button class="starBtn" data-star="2">★★</button>
+<button class="starBtn" data-star="3">★★★</button>
+<button class="starBtn" data-star="4">★★★★</button>
+<button class="starBtn" data-star="5">★★★★★</button>
+</div>
 
-  <select id="starFilter" class="hiddenSelect">
-    <option value="all">전체</option>
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option>
-  </select>
+<select id="starFilter" class="hiddenSelect">
+<option value="all">전체</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+</select>
 </header>
 
 <main class="wrap">
-  <table class="table">
-   <thead>
-  <tr>
-    <th class="thSort" data-sort="genre" role="button" tabindex="0" title="장르 정렬">
-      🎶장르
-    </th>
-    <th class="thSort" data-sort="singer" role="button" tabindex="0" title="가수 정렬">
-      👩‍🎤가수
-    </th>
-    <th class="thSort" data-sort="title" role="button" tabindex="0" title="제목 정렬">
-      🎤제목
-    </th>
-    <th class="thSort" data-sort="stars" role="button" tabindex="0" title="난이도 정렬">
-      ★난이도
-    </th>
-  </tr>
+
+<table class="table">
+<thead>
+<tr>
+<th class="thSort" data-sort="genre">🎶장르</th>
+<th class="thSort" data-sort="singer">👩‍🎤가수</th>
+<th class="thSort" data-sort="title">🎤제목</th>
+<th class="thSort" data-sort="stars">★난이도</th>
+</tr>
 </thead>
-    <tbody id="songList"></tbody>
-  </table>
+
+<tbody id="songList"></tbody>
+</table>
+
 </main>
 
 <script src="script.js"></script>
 
 <script>
-(function () {
-  const select = document.getElementById("starFilter");
-  const btns = document.querySelectorAll(".starBtn");
-  function setActive(v){
-    btns.forEach(b => b.classList.toggle("active", b.dataset.star === v));
-  }
-  setActive("all");
-  btns.forEach(btn => {
-    btn.addEventListener("click", () => {
-      const v = btn.dataset.star;
-      select.value = v;
-      setActive(v);
-      select.dispatchEvent(new Event("change"));
-    });
-  });
-})();
+const select = document.getElementById("starFilter");
+const btns = document.querySelectorAll(".starBtn");
+
+btns.forEach(btn=>{
+btn.onclick=()=>{
+select.value=btn.dataset.star;
+select.dispatchEvent(new Event("change"));
+btns.forEach(b=>b.classList.remove("active"));
+btn.classList.add("active");
+}
+});
 </script>
 
 </body>
