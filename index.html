@@ -12,7 +12,7 @@
 <div class="bg-dots"></div>
 
 <header class="hero">
-  <img src="baekseonhwa.png" class="avatar" alt="백쨈">
+  <img src="baekseonhwa.png" class="avatar">
   <h1>🌸백쨈의 노래자랑🌸</h1>
 
   <input id="search" type="text" placeholder="검색: 제목 / 가수 / 장르">
@@ -37,17 +37,17 @@
 </header>
 
 <main class="wrap">
-  <table class="table">
-    <thead>
-      <tr>
-        <th class="thSort" data-sort="genre">🎶장르</th>
-        <th class="thSort" data-sort="singer">👩‍🎤가수</th>
-        <th class="thSort" data-sort="title">🎤제목</th>
-        <th class="thSort" data-sort="stars">★난이도</th>
-      </tr>
-    </thead>
-    <tbody id="songList"></tbody>
-  </table>
+<table class="table">
+<thead>
+<tr>
+<th class="thSort" data-sort="genre">🎶장르</th>
+<th class="thSort" data-sort="singer">👩‍🎤가수</th>
+<th class="thSort" data-sort="title">🎤제목</th>
+<th class="thSort" data-sort="stars">★난이도</th>
+</tr>
+</thead>
+<tbody id="songList"></tbody>
+</table>
 </main>
 
 <script src="script.js"></script>
@@ -55,14 +55,15 @@
 const select = document.getElementById("starFilter");
 const btns = document.querySelectorAll(".starBtn");
 
-btns.forEach(btn => {
-  btn.onclick = () => {
-    select.value = btn.dataset.star;
-    select.dispatchEvent(new Event("change"));
-    btns.forEach(b => b.classList.remove("active"));
-    btn.classList.add("active");
-  };
+btns.forEach(btn=>{
+btn.onclick=()=>{
+select.value=btn.dataset.star;
+select.dispatchEvent(new Event("change"));
+btns.forEach(b=>b.classList.remove("active"));
+btn.classList.add("active");
+}
 });
 </script>
+
 </body>
 </html>
